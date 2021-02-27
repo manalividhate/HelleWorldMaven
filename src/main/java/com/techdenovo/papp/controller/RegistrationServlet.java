@@ -16,7 +16,6 @@ public class RegistrationServlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.sendRedirect("registration.jsp");
     }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Customer customer = new Customer();
@@ -25,18 +24,15 @@ public class RegistrationServlet extends HttpServlet{
         customer.setMobNumber(req.getParameter("mob-no"));
         customer.setEmail(req.getParameter("email"));
         customer.setCity(req.getParameter("city"));
-
-
         String password = req.getParameter("password");
         String confirm_password = req.getParameter("confirm-password");
 
         if(password.contentEquals(confirm_password)){
             customer.setPassword(password);
-
             CustomerDto customerDto = new CustomerDtoImpl();
             Customer savedCustomer = customerDto.addCustomer(customer);
 
-            req.setAttribute("customer", savedCustomer);
+            req.setAttribute("message", "Registration Successful");
             RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/registration_success.jsp");
             requestDispatcher.forward(req,resp);
         } else {
