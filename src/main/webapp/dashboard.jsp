@@ -7,6 +7,7 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
   </head>
   <body>
+
   <%
       if (session.getAttribute("message")==null){
           response.sendRedirect("login-form.jsp");
@@ -25,6 +26,9 @@
           <th>Mob_Number</th>
           <th>Email</th>
           <th>City</th>
+          <th>Action</th>
+           <th>Action</th>
+
     </tr>
     <c:forEach var="customer" items="${customers}">
         <tr>
@@ -34,9 +38,10 @@
             <td>${customer.getMobNumber()}</td>
             <td>${customer.getEmail()}</td>
             <td>${customer.getCity()}</td>
+            <td><a href="customer-edit?id=${customer.getId()}">update</a></td>
+             <td><a href="customer-delete?id=${customer.getId()}">delete</a></td>
         </tr>
     </c:forEach>
-
    </thead>
     </table>
     </div

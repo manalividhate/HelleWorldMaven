@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
-
-     <title>Registration Success..</title>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
+     <title></title>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-
   </head>
   <body>
+
 <div class="container">
 <div class="table-responsive">
-  <h1>Registration Success....</h1>
+  <h1>Dashboard</h1>
 
    <table class="table table-striped table-bordered">
     <thead>
@@ -20,9 +21,15 @@
           <th>Mob_Number</th>
           <th>Email</th>
           <th>City</th>
-          <th>Password</th>
     </tr>
-
+        <tr>
+            <td>${customer.getId()}</td>
+            <td>${customer.getFirstName()}</td>
+            <td>${customer.getLastName()}</td>
+            <td>${customer.getMobNumber()}</td>
+            <td>${customer.getEmail()}</td>
+            <td>${customer.getCity()}</td>
+        </tr>
    </thead>
     </table>
     </div

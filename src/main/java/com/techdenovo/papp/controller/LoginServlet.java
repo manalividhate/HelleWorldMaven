@@ -26,8 +26,9 @@ public class LoginServlet extends HttpServlet {
         String email=req.getParameter("email");
         String password =req.getParameter("password");
         System.out.println(email+password);
+
         boolean flag = customerDto.checkLogin(email,password);
-        String destPage = "/login.jsp";
+        String destPage = "/login-form.jsp";
         if(flag){
             HttpSession oldHttpSession = req.getSession(false);
 
@@ -43,9 +44,10 @@ public class LoginServlet extends HttpServlet {
         } else {
             String message = "Invalid email/password";
             req.setAttribute("message",message);
+            System.out.println(destPage);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(destPage);
+            dispatcher.forward(req,resp);
         }
-        System.out.println(destPage);
-//        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(destPage);
-//        dispatcher.forward(req,resp);
+
     }
 }

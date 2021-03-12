@@ -129,10 +129,8 @@
                 <div class="form-group">
                     <input type="password" class="form-control" name="confirm-password" placeholder="Confirm Password" required="required">
                 </div>
-
                 <% String msg= (String)request.getAttribute("message"); %>
                 ${msg}
-
                 <div class="form-group">
                     <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
                 </div>
